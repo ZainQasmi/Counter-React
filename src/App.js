@@ -39,6 +39,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("App-Rendered");
     return (
       <React.Fragment>
         <NavBar
@@ -54,6 +55,18 @@ class App extends Component {
         />
       </React.Fragment>
     );
+  }
+
+  constructor(props) {
+    super(props);
+    console.log("App-Constructor", this.props);
+    // this.state = this.props.something;
+  }
+
+  // Perfect for AJAX Calls
+  componentDidMount() {
+    console.log("App-Mounted");
+    // Then setState -- this.setState({ movies });
   }
 }
 

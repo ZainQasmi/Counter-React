@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   render() {
+    console.log("Single Counter Rendered");
     return (
       <div>
         <span style={this.styles} className={this.getBadgeClasses()}>
@@ -38,6 +39,18 @@ class Counter extends Component {
     fontSize: "30px",
     fontWeight: "bold"
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Did update: ", "prevProps", prevProps);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      // Incase of change make a new Ajax request to get new data from server
+    }
+  }
+
+  componentWillUnmount() {
+    // Purge unused memory here
+    console.log("Counter- Unmount");
+  }
 }
 
 export default Counter;
