@@ -18,13 +18,14 @@ class Counters extends Component {
             key={counter.id}
             counter={counter}
             onIncrement={props.onIncrement}
+            onDecrement={props.onDecrement}
             onDelete={props.onDelete}
           >
             {counter.id}
           </Counter>
         ))}
       </React.Fragment>
-    );
+    );   
   }
 }
 

@@ -26,11 +26,22 @@ class App extends Component {
     const counters = this.state.counters.map(c => {
       if (c.id === counterID) {
         c.value++;
-      }
+        }
       return c;
     });
     this.setState({ counters: counters });
   };
+
+  handleDecrement = counterID => {
+    const counters = this.state.counters.map(c => {
+      if (c.id === counterID) {
+        c.value--;
+        }
+      return c;
+    });
+    this.setState({ counters: counters });
+  };
+
 
   handleAdd = () => {
     const counters = [...this.state.counters];
@@ -47,8 +58,9 @@ class App extends Component {
         />
         <Counters
           counters={this.state.counters}
-          onClick={this.handleReset}
+          // onClick={this.handleReset}
           onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
           onDelete={this.handleDelete}
           onReset={this.handleReset}
           onAdd={this.handleAdd}
